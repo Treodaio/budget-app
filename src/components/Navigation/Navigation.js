@@ -1,10 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Wrapper } from 'components';
 import { Container, List } from './Navigation.css';
 
 
-const Navigation = ({ items }) => {
+const Navigation = ({ items = [], RightElement }) => {
   return (
     <Container>
       <Wrapper>
@@ -17,9 +18,14 @@ const Navigation = ({ items }) => {
             ))
           }
         </List>
+        {RightElement}
       </Wrapper>
     </Container>
   );
+}
+
+Navigation.propTypes = {
+  items: PropTypes.array.isRequired,
 }
 
 export default Navigation;

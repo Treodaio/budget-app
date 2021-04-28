@@ -3,7 +3,7 @@ import GlobalStyles from './index.css';
 import { ThemeProvider } from 'styled-components';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import { Navigation } from 'components';
+import { Navigation, Wrapper } from 'components';
 import theme from 'utils/theme';
 
 function App() {
@@ -20,15 +20,25 @@ function App() {
             content: 'Budget',
             to: '/budget',
           }
-        ]} />
-        <Switch>
-          <Route exact path="/">
-            HomePage
+        ]}
+          RightElement={(
+            <div>
+              <button>PL</button>
+              <button>EN</button>
+            </div>
+          )}
+
+        />
+        <Wrapper>
+          <Switch>
+            <Route exact path="/">
+              HomePage
         </Route>
-          <Route path="/budget">
-            Budget page
+            <Route path="/budget">
+              Budget page
         </Route>
-        </Switch>
+          </Switch>
+        </Wrapper>
       </Router>
     </ThemeProvider>
   );
