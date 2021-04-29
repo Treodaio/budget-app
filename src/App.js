@@ -1,14 +1,15 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import GlobalStyles from './index.css';
 import { ThemeProvider } from 'styled-components';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import { Navigation, Wrapper } from 'components';
 import theme from 'utils/theme';
+import LoadingIndicator from 'components/LoadingIndicator/LoadingIndicatior.css';
 
 function App() {
   return (
-    <ThemeProvider theme={theme}>
+    <Fragment>
       <GlobalStyles />
       <Router>
         <Navigation items={[
@@ -33,15 +34,25 @@ function App() {
           <Switch>
             <Route exact path="/">
               HomePage
-        </Route>
+            </Route>
             <Route path="/budget">
               Budget page
         </Route>
           </Switch>
         </Wrapper>
       </Router>
-    </ThemeProvider>
+    </Fragment>
   );
 }
 
-export default App;
+function RootApp() {
+  return (
+    <ThemeProvider theme={theme}>
+      <React.Suspense fallback={<LoadingIndicator />}>
+        <App />
+      </React.Suspense>
+    </ThemeProvider>
+  )
+}
+
+export default RootApp;
