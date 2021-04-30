@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-import { Wrapper } from 'components';
+import { Button } from 'components';
 import { Container, List, NavigationWrapper } from './Navigation.css';
 
 
@@ -13,7 +12,7 @@ const Navigation = ({ items = [], RightElement }) => {
           {
             items.map(item => (
               <li key={item.to}>
-                <Link to={item.to}>{item.content}</Link>
+                <Button to={item.to}>{item.content}</Button>
               </li>
             ))
           }

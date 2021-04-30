@@ -1,9 +1,13 @@
 import React, { Fragment } from 'react';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch
+} from 'react-router-dom';
 import GlobalStyles from './index.css';
 import { ThemeProvider } from 'styled-components';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import { Navigation, Wrapper } from 'components';
+import { Navigation, Wrapper, Button } from 'components';
 import theme from 'utils/theme';
 import LoadingIndicator from 'components/LoadingIndicator/LoadingIndicatior.css';
 
@@ -24,8 +28,8 @@ function App() {
         ]}
           RightElement={(
             <div>
-              <button>PL</button>
-              <button>EN</button>
+              <Button variant="regular" onClick={() => { }}>PL</Button>
+              <Button variant="regular" onClick={() => { }}>EN</Button>
             </div>
           )}
 
